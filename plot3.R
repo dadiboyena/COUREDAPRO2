@@ -6,6 +6,12 @@ unzip("exdata-data-NEI_data.zip")
 NEI <- readRDS("summarySCC_PM25.rds")
 SCC <- readRDS("Source_Classification_Code.rds")
 
+# Subsetting data related only to Baltimore city and saving it to dataint
+# Loading plyr library to use ddply for summing amount of PM2.5 emission in tons
+# by year and type of source. data obtained is stored in new dataset called data2 
+# whose first column shows the year, the second type of source  and last total 
+# emission of above pollutant that year. Columns are labeled accordingly.
+
 library(plyr)
 library(ggplot2)
 dataint <- subset(NEI, as.factor(NEI$fips) == 24510)

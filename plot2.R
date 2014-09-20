@@ -27,7 +27,7 @@ names(data1)[2] <- "Year"
 png("./plot2.png")
 options(scipen=5)
 plot2 <- barplot(data2$tot, ylab = expression("Total Emissions in Tons from PM"[2.5]), xlab = "Years")
-axis(1,at= plot2, labels=data1$Year)
+axis(1,at= plot2, labels=data2$Year)
 title(main = expression("Total Emissions in Baltimore City from 1999 to 2008 from PM"[2.5]))
 usr <- par( "usr" )
 text(usr[2],usr[4],expression("Observing for year 1999, 2002, 2005 and 2008"),adj = c(1,1),col="blue",cex=.8)
