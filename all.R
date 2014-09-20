@@ -60,6 +60,7 @@ dev.off()
 
 # Plot III
 #-------------------------------------------------------------------------------------------------------
+# Subsetting data NEI to store in dataint observations pretaining only to Baltimore city.
 # Loading plyr library to use ddply for summing amount of PM2.5 emission in tons
 # by year and by source type. data obtained is stored in new dataset called data3 
 # whose first column shows the year, second type and last total emission of above 
@@ -67,6 +68,7 @@ dev.off()
 
 library(plyr)
 library(ggplot2)
+dataint <- subset(NEI, as.factor(NEI$fips) == 24510)
 data3 <- ddply(dataint, .(as.factor(year),as.factor(type)), summarize,tot=sum(as.numeric(Emissions)))
 names(data3)[1] <- "Year"
 names(data3)[2] <- "Type"
